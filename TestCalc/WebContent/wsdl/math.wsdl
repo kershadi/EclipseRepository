@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="MathService" targetNamespace="http://ws.cal.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.cal.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://ws.cal.com/" schemaLocation="math_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="multiplyResponse">
+    <wsdl:part name="parameters" element="tns:multiplyResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addResponse">
+    <wsdl:part name="parameters" element="tns:addResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="subtract">
+    <wsdl:part name="parameters" element="tns:subtract">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="subtractResponse">
+    <wsdl:part name="parameters" element="tns:subtractResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="add">
+    <wsdl:part name="parameters" element="tns:add">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="multiply">
+    <wsdl:part name="parameters" element="tns:multiply">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MathSEI">
+    <wsdl:operation name="multiply">
+      <wsdl:input name="multiply" message="tns:multiply">
+    </wsdl:input>
+      <wsdl:output name="multiplyResponse" message="tns:multiplyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subtract">
+      <wsdl:input name="subtract" message="tns:subtract">
+    </wsdl:input>
+      <wsdl:output name="subtractResponse" message="tns:subtractResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <wsdl:input name="add" message="tns:add">
+    </wsdl:input>
+      <wsdl:output name="addResponse" message="tns:addResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MathServiceSoapBinding" type="tns:MathSEI">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="multiply">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="multiply">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="multiplyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subtract">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="subtract">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="subtractResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="add">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MathService">
+    <wsdl:port name="MathPort" binding="tns:MathServiceSoapBinding">
+      <soap:address location="http://localhost:9080/TestCalc/services/MathPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
