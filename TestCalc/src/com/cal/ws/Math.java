@@ -14,6 +14,8 @@ public class Math implements MathSEI  {
 	
 	public int multiply (int a, int b){
 		return a *b;
+		
+		//Just a comment for checking remote repository
 	}
 }
 
