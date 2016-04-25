@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:tns="http://ws.tst.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ws.tst.com/" version="1.0">
+<xs:element name="getProductDescription" type="tns:getProductDescription"/>
+<xs:element name="getProductDescriptionResponse" type="tns:getProductDescriptionResponse"/>
+<xs:complexType name="getProductDescription">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getProductDescriptionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
