@@ -46,14 +46,7 @@ public class MessageService {
 		return messages.remove(message.getId());
 	}
 
-}
+} 
 
 
-//Message m1 = new Message(1L, "Hello World!", "kouros");
-//Message m2 = new Message(2L, "Hello Jersey!", "Kouros");
-//
-//List<Message> list = new ArrayList<Message>();
-//list.add(m1);
-//list.add(m2);
-//
-//return list;
+
