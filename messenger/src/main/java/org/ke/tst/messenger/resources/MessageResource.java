@@ -47,7 +47,7 @@ public class MessageResource {
     @Produces(MediaType.APPLICATION_JSON)
     public void deleteMessage(@PathParam("MessageID") long id)
     {
-    	messageService.removeMessage(id);
+    	messageService.removeMessage(id); 
     }
     
     
