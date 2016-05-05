@@ -45,6 +45,11 @@ public class MessageService {
 	{
 		return messages.remove(message.getId());
 	}
+	
+	public Message removeMessage(long id)
+	{
+		return messages.remove(id);
+	}
 
 } 
 
