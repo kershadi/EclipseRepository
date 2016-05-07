@@ -16,27 +16,24 @@ import org.ke.tst.messenger.model.Message;
 import org.ke.tst.messenger.service.MessageService;
 
 @Path("/messages")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class MessageResource {
 
 	MessageService messageService = new MessageService();
 	
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     public List<Message> getMessages() {
     	return messageService.getAllMessages();       		
     }
     
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public Message addMessages(Message message) {
     	return messageService.addMessage(message);
     }
     	
     @PUT
     @Path ("{MessageID}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public Message updateMessage(@PathParam("MessageID") long id, Message message){
     	message.setId(id);
     	return messageService.updateMessage(message);
@@ -44,7 +41,6 @@ public class MessageResource {
     
     @DELETE
     @Path ("{MessageID}")
-    @Produces(MediaType.APPLICATION_JSON)
     public void deleteMessage(@PathParam("MessageID") long id)
     {
     	messageService.removeMessage(id); 
@@ -53,7 +49,6 @@ public class MessageResource {
     
     @GET 
     @Path ("{MessageID}")
-    @Produces(MediaType.APPLICATION_JSON)
     public Message getMessage(@PathParam("MessageID") long id)
     {
     	return messageService.getMessage(id);
